@@ -1,13 +1,14 @@
+package src;
 import java.awt.Toolkit;
 import java.util.Scanner;
 
 public class Functions {
 
     //Change console text to red
-    public static final String RED = "\u001B[31m";
+    public static final String REDtxt = "\u001B[31m";
 
     //Reset console color
-    public static final String RESET = "\u001B[0m";
+    public static final String RESETtxt = "\u001B[0m";
 
     // Check if inputted string was left blank
     public static String checkEmptyString(Scanner scanner, String prompt) {
@@ -19,13 +20,13 @@ public class Functions {
             //Check if "input" is empty
             if (input.isBlank()) {
                 Toolkit.getDefaultToolkit().beep();
-                System.out.println(RED + "Field cannot be empty!" + RESET);
+                System.out.println(REDtxt + "Field cannot be empty!" + RESETtxt);
             } else {
                 break;
             }
         }
         //Return a value, which would be input so it can be saved in a String variable
-        return input;
+        return input.trim();
     }
 
     //Check if inputted int was left blank
@@ -34,12 +35,12 @@ public class Functions {
         String input_str = "";
         while (true) {
             System.out.print(prompt);
-            input_str = scanner.nextLine();
+            input_str = scanner.nextLine().trim();
 
             //Check if "input_str" was left blank
             if (input_str.isBlank()) {
                 Toolkit.getDefaultToolkit().beep();
-                System.out.println(RED + "Do not leave field empty!" + RESET);
+                System.out.println(REDtxt + "Do not leave field empty!" + RESETtxt);
             } else {
                 //Now relevant integer checks must be done
                 try {
@@ -47,7 +48,7 @@ public class Functions {
                     break;
                 } catch (NumberFormatException e) {
                     Toolkit.getDefaultToolkit().beep();
-                    System.out.println(RED + "Enter a valid number!" + "\n"  + e + RESET);
+                    System.out.println(REDtxt + "Enter a valid number!" + "\n"  + e + RESETtxt);
                 }
             } 
         }
