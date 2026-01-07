@@ -8,7 +8,7 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        signupMenu(scanner);
+        mainMenu(scanner);
 
     }
 
@@ -16,14 +16,31 @@ public class Main {
     // Main Menu
     // --------------------------------------------------------------------------------------------------------------------------------
     public static void mainMenu(Scanner scanner) {
-        System.out.println("Main Menu");
+        while (true) {
+            System.out.println(
+                    "\nMain Menu\n----------------------------------------------------------------------------------------\n");
+            System.out.println("1. Log in\n2. Sign up\n3. Exit");
+
+            int userChoice = Functions.checkEmptyInt(scanner, "\nEnter choice: ");
+            if (userChoice == 1) {
+                loginMenu(scanner);
+            } else if (userChoice == 2) {
+                signupMenu(scanner);
+            } else if (userChoice == 3) {
+                System.exit(10);
+            } else {
+                Toolkit.getDefaultToolkit().beep();
+                System.out.println(Functions.REDtxt + "Enter a valid number!" + Functions.RESETtxt);
+            }
+        }
+
     }
 
     // --------------------------------------------------------------------------------------------------------------------------------
     // Dashboard
     // --------------------------------------------------------------------------------------------------------------------------------
     public static void dashboard(Scanner scanner) {
-
+        //Banking logic
     }
 
     // --------------------------------------------------------------------------------------------------------------------------------
